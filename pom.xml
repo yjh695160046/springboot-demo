@@ -17,6 +17,7 @@
         <module>kafka-demo</module>
         <!-- 配置场景启动器（自定义）-->
         <module>demo-spring-boot-starter</module>
+        <module>java-base</module>
     </modules>
 
     <properties>

@@ -3,6 +3,7 @@ package com.yijian.kafka;
 import com.yijian.demospringbootstarter.EnableAutoConfigTest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.kafka.annotation.EnableKafka;
 
 @SpringBootApplication
 @EnableAutoConfigTest

@@ -1,0 +1,9 @@
+server:
+  port: 9000
+  servlet:
+    context-path: /kafkaDemo
+spring:
+  application:
+    name: kafkaDemo
+  kafka:
+    bootstrap-servers:

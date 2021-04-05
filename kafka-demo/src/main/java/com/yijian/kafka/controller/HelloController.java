@@ -1,8 +1,10 @@
 package com.yijian.kafka.controller;
 
 import com.yijian.demospringbootstarter.ServiceBean;
+import com.yijian.kafka.kakfa.KafkaProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,9 +19,13 @@ public class HelloController {
     @Autowired
     private ServiceBean serviceBean;
 
-    @RequestMapping("test01")
-    public String test01(){
-          return  serviceBean.sayHello("yaojinhua");
+    @Autowired
+    private KafkaProducer<String, Object> kafkaProducer;
+
+    @RequestMapping(value = "test01", method = RequestMethod.GET)
+    public Object test01() {
+        kafkaProducer.send("topic1", "简单消费");
+        return serviceBean.sayHello("yaojinhua");
     }
 
 }
