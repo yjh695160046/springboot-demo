@@ -23,9 +23,9 @@ public class KafkaInitialConfiguration {
      *
      */
 
-    @Bean
-    public NewTopic initialTopic() {
-        return new NewTopic("topic1",8, (short) 1 );
-    }
+    //@Bean
+    //public NewTopic initialTopic() {
+    //    return new NewTopic("topic1",8, (short) 1 );
+    //}
 
 }
