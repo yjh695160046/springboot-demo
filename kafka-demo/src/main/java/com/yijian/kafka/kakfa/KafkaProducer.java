@@ -26,19 +26,22 @@ public class KafkaProducer<K, V> {
      * 数据–数据。
      */
     public void send(String topic, V data){
+        kafkaTemplate.send(topic, data);
         //指定key 及分区
         //kafkaTemplate.send(topic, 1, topic, data);
 
-        ListenableFuture<SendResult<String, Object>> send = kafkaTemplate.send(topic, data);
-        SendResult<String, Object> stringObjectSendResult = null;
-        try {
-            stringObjectSendResult = send.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        stringObjectSendResult.getRecordMetadata();
+        //ListenableFuture<SendResult<String, Object>> send = kafkaTemplate.send(topic, data);
+        //SendResult<String, Object> stringObjectSendResult = null;
+        //try {
+        //    stringObjectSendResult = send.get();
+        //} catch (InterruptedException e) {
+        //    e.printStackTrace();
+        //} catch (ExecutionException e) {
+        //    e.printStackTrace();
+        //}
+        //stringObjectSendResult.getRecordMetadata();
+
+
     }
 
 

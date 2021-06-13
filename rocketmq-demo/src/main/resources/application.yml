@@ -1,0 +1,8 @@
+server:
+  port: 9000
+
+rocketmq:
+  name-server: localhost:9876
+  producer:
+    ## 必须指定group
+    group: test-group

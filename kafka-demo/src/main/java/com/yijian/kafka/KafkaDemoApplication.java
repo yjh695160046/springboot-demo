@@ -1,6 +1,7 @@
 package com.yijian.kafka;
 
 import com.yijian.demospringbootstarter.EnableAutoConfigTest;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -10,6 +11,7 @@ import java.io.FileNotFoundException;
 
 @SpringBootApplication
 @EnableAutoConfigTest
+@MapperScan("com.yijian.kafka.mapper")
 public class KafkaDemoApplication {
 
     public static void main(String[] args) {
