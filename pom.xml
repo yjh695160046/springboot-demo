@@ -17,8 +17,11 @@
         <module>kafka-demo</module>
         <!-- 配置场景启动器（自定义）-->
         <module>demo-spring-boot-starter</module>
-        <module>java-base</module>
+        <module>java-spring-base</module>
         <module>elastic-Job</module>
+        <module>spring-security</module>
+        <module>dubbo</module>
+        <module>rocketmq-demo</module>
     </modules>
 
     <properties>
@@ -36,6 +39,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>27.0.1-jre</version>
         </dependency>
     </dependencies>
 
