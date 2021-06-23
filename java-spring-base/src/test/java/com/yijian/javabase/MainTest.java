@@ -1,5 +1,9 @@
 package com.yijian.javabase;
 
+import com.yijian.javabase.dependency.Car;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**
  * @author: yaojinhua
  * @date: 2021/4/30 16:42
@@ -12,9 +16,9 @@ public class MainTest {
 
 
         //
-        //ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath:beans.xml");
-        //Car car = (Car) classPathXmlApplicationContext.getBean("car");
-        //Car car1 = (Car) classPathXmlApplicationContext.getBean("car1");
+        ApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("classpath:beans.xml");
+        Car car = (Car) classPathXmlApplicationContext.getBean("car");
+        Car car1 = (Car) classPathXmlApplicationContext.getBean("car1");
         //
         //System.out.println(car == car1);
 

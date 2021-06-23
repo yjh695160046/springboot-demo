@@ -3,10 +3,12 @@ package com.yijian.controller;
 import cn.hutool.core.date.DateUtil;
 import com.yijian.redisson.entity.ActiveInfo;
 import org.springframework.data.redis.core.SetOperations;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @author: yaojinhua
@@ -18,9 +20,9 @@ import java.util.Date;
 public class TestController {
 
     @RequestMapping("/checkDate")
-    public Object saveSet() {
+    public Object saveSet(@RequestBody Map<String, Object> map) {
 
-        return DateUtil.offsetDay(new Date(), -29);
+        return map;
 
 
     }

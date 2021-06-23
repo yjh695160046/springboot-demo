@@ -34,8 +34,10 @@ public class ReflectCase {
         student3 = (Student) case1.newInstance();
 
         System.out.println(student3);
-        // getConstructor() 获取无参构造方法
+        // getConstructor() 获取本类中公有无参构造方法
         Constructor<?> constructorNotParam = case1.getConstructor();
+        // getConstructor() 获取本类中无参构造方法
+        Constructor<?>[] declaredConstructors = case1.getDeclaredConstructors();
         // getConstructor() 获取有参构造方法 tip: 已知参数个数
         Constructor<?> constructorWithParam = case1.getConstructor(Integer.class, Integer.class, String.class);
         // getConstructors() 获取本类所有的共有构造方法 tip: 顺序不知
@@ -123,7 +125,7 @@ class Student extends Person {
 
     }
 
-    public Student(Integer age, Integer sex, String NAME) {
+    private Student(Integer age, Integer sex, String NAME) {
         this.age = age;
         this.sex = sex;
         this.NAME = NAME;
@@ -155,6 +157,14 @@ class Person implements School{
     private int height;
 
     private Double weight;
+
+    public Person() {
+    }
+
+    public Person(int height, Double weight) {
+        this.height = height;
+        this.weight = weight;
+    }
 
     @Override
     public String course() {
