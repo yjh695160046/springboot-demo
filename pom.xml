@@ -22,6 +22,7 @@
         <module>spring-security</module>
         <module>dubbo</module>
         <module>rocketmq-demo</module>
+        <module>hystrix-demo</module>
     </modules>
 
     <properties>

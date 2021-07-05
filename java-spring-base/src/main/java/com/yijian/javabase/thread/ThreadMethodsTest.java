@@ -61,7 +61,7 @@ public class ThreadMethodsTest {
     }
     static void testRun1(){
         //
-        //Thread.yield();
+        Thread.yield();
         //try {
         //    Thread.sleep(3000);
         //} catch (InterruptedException e) {

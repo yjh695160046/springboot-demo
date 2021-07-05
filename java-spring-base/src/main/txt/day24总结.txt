@@ -1,7 +1,60 @@
 1:多线程(理解)
 	(1)JDK5以后的针对线程的锁定操作和释放操作
-		Lock锁
+	    一般使用Lock锁 要和try catch finally 一起使用 因为Lock锁不会主动释放锁 要手动进行释放
+		Lock锁:
+		  // 获取锁  常用 如果锁被其他线程获取到 就进行等待
+          void lock()
+
+          // 如果当前线程未被中断，则获取锁，可以响应中断
+          void lockInterruptibly()
+
+          // 返回绑定到此 Lock 实例的新 Condition 实例
+          Condition newCondition()
+
+          // 仅在调用时锁为空闲状态才获取该锁，可以响应中断 获取不到锁 直接返回false 进行else逻辑处理
+          boolean tryLock()
+
+          // 如果锁在给定的等待时间内空闲，并且当前线程未被中断，则获取锁
+          boolean tryLock(long time, TimeUnit unit)
+
+          // 释放锁
+          void unlock() 使用完后一定要释放锁 不然会造成死锁问题
+         两个具体的实现类
+          ReentrantLock
+          ReadWriteLock 维护了一对相关的锁，一个用于只读操作，另一个用于写入操作。只要没有 writer，读取锁可以由多个 reader 线程同时保持，而写入锁是独占的。
+
+          1、可重入锁
+      　　　　如果锁具备可重入性，则称作为 可重入锁 。像 synchronized和ReentrantLock都是可重入锁，可重入性在我看来实际上表明了
+                            锁的分配机制：基于线程的分配，而不是基于方法调用的分配。举个简单的例子，
+                            当一个线程执行到某个synchronized方法时，比如说method1，而在method1中会调用另外一个synchronized方法method2，
+                            此时线程不必重新去申请锁，而是可以直接执行方法method2。
+              class MyClass {
+                  public synchronized void method1() {
+                      method2();
+
+                  }
+                  public synchronized void method2() {
+
+                  }
+              }
+      　　上述代码中的两个方法method1和method2都用synchronized修饰了。假如某一时刻，线程A执行到了method1，此时线程A获取了这个对象的锁，
+                而由于method2也是synchronized方法，假如synchronized不具备可重入性，此时线程A需要重新申请锁。
+                但是，这就会造成死锁，因为线程A已经持有了该对象的锁，而又在申请获取该对象的锁，这样就会线程A一直等待永远不会获取到的锁。
+                而由于synchronized和Lock都具备可重入性，所以不会发生上述现象。
+
+       　　2、可中断锁
+      　　    顾名思义，可中断锁就是可以响应中断的锁。在Java中，synchronized就不是可中断锁，而Lock是可中断锁。
+      　    如果某一线程A正在执行锁中的代码，另一线程B正在等待获取该锁，可能由于等待时间过长，线程B不想等待了，想先处理其他事情，
+            我们可以让它中断自己或者在别的线程中中断它，这种就是可中断锁。
+            在前面演示tryLock(long time, TimeUnit unit)和lockInterruptibly()的用法时已经体现了Lock的可中断性。
+       　　3、公平锁
+      　　      公平锁即 尽量 以请求锁的顺序来获取锁。比如，同是有多个线程在等待一个锁，当这个锁被释放时，等待时间最久的线程（最先请求的线程）会获得该锁，
+              这种就是公平锁。而非公平锁则无法保证锁的获取是按照请求锁的顺序进行的，这样就可能导致某个或者一些线程永远获取不到锁。
+      　　    在Java中，synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序。而对于ReentrantLock 和 ReentrantReadWriteLock，
+              它默认情况下是非公平锁，但是可以设置为公平锁
 	(2)死锁问题的描述和代码体现
+	   两个线程或多个线程争夺资源的过程 相互等待 同步嵌套死锁问题  你拿着我的锁 我拿着你的锁
+       代码参考 com.yijian.javabase.thread.DicLockDemo
 	(3)生产者和消费者多线程体现(线程间通信问题)
 		以学生作为资源来实现的
 		
@@ -18,9 +71,33 @@
 				notify()
 				notifyAll() (多生产多消费)
 			D:等待唤醒机制的代码优化。把数据及操作都写在了资源类中
+	   线程间的通信面试题
+	      sleep() 和 wait()的区别
+	      1.位置不一样
+	          sleep() 在Thread类中
+	          wait() 在Object类中
+          2.作用域不一样
+            sleep() 可以在任何代码中使用 wait() 需要在synchronized同步代码块中使用
+          3.是否释放锁
+            sleep() 使用期间不释放锁 释放CPU执行权 ，wait()释放锁 释放CPU的执行权
+          4.释放锁的时机
+            sleep() 等待休眠时间到 wait() notify()唤醒或等待休眠时间到
+          5.是否抛出异常
+            sleep 必须捕获异常   wait()必须捕获异常
+
+          思考点：为什么线程方法 wait() notify() notifyAll() 要设计到Object类中
+            因为wait() notify() notifyAll() 必须在同步代码块中被锁对象监视器调用 而锁对象又可以是任意对象 所以就设计到Object类中
+
+          代码说明sleep 不会释放锁而 wait()会释放锁
+           代码com.yijian.javabase.thread.SleepAndWaitLockDemo
+
+
 	(4)线程组
 	(5)线程池
 	(6)多线程实现的第三种方案
+       实现Callable接口 有返回值 使用线程池创建线程  或 new FutureTask(new Callable(){})
+
+
 	(7)多线程的面试题
 
 2:设计模式(理解)
