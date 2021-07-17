@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+</script>
+<body>
+  <span style="color: red" id="test"> 测试</span>
+</body>
+  <script>
+      $(function(){
+          $("#test").click(function (){
+             $.get('http://localhost:8900/nasforward/file/download?filenamepath=12&fileName=12&uploadToken=1212', function (result){
+                 console.log(result)
+             })
+          })
+      })
+  </script>
+
+</html>

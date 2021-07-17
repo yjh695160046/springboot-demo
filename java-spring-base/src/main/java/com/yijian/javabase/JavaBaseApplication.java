@@ -12,7 +12,7 @@ import java.util.Date;
  * @author yaojinhua
  */
 @SpringBootApplication
-@ImportResource(locations = {"classpath:beans.xml"})
+//@ImportResource(locations = {"classpath:beans.xml"})
 public class JavaBaseApplication {
 
     public static void main(String[] args) {

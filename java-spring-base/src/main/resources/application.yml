@@ -1,9 +1,20 @@
+server:
+  port: 8086
 spring:
   main:
     ## 是否打印 springboot的logo
-    banner-mode: off
+    banner-mode: log
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
       - org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration
       - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+    # 引擎模板配置
+  thymeleaf:
+    cache: false # 关闭缓存
+    mode: LEGACYHTML5 # 去除htm5严格校验
+    prefix: classpath:/templates/ # 指定 thymeleaf 模板路径
+    encoding: UTF-8 # 指定字符集编码
+    suffix: .html
+  mvc:
+    static-path-pattern: /static/** # js ,css 等静态文件路径
