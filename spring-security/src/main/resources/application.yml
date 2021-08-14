@@ -1,16 +1,16 @@
 server:
   port: 9100
-spring:
-  redis:
-    port: 6379
-    host: 127.0.0.1
-    timeout: 3s
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8
-    username: root
-    password: 123456
-    type: com.alibaba.druid.pool.DruidDataSource
+#spring:
+#  redis:
+#    port: 6379
+#    host: 127.0.0.1
+#    timeout: 3s
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8
+#    username: root
+#    password: 123456
+#    type: com.alibaba.druid.pool.DruidDataSource
 # JWT配置
 #jwt:
 #  # 密匙KEY
@@ -44,3 +44,9 @@ spring:
 #    call-setters-on-nulls: true
 #    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# security 的账户密码
+#spring:
+#  security:
+#    user:
+#      name: yijian
+#      password: 123

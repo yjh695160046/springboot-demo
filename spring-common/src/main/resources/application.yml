@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: dev
+## springboot 默认读取的是类路径下logback.xml 或 logback-spring.xml 如果单独命名需要指定位置及名称
+logging:
+  config: classpath:spring-logback.xml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  #      base-path: /monitor
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true

@@ -23,12 +23,15 @@
         <module>dubbo</module>
         <module>rocketmq-demo</module>
         <module>hystrix-demo</module>
+        <module>spring-common</module>
+        <module>mybaits</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <java.version>1.8</java.version>
+        <lombok.version>1.18.12</lombok.version>
     </properties>
 
     <dependencies>
@@ -44,7 +47,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
