@@ -1,7 +1,5 @@
 package com.yijian.javabase.main;
 
-import lombok.Data;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -195,7 +193,7 @@ interface School {
         System.out.println("interfaceDefaultMethod : " + "接口默认方法");
     }
 
-    public static void interfaceStaticMethod(){
+    static void interfaceStaticMethod(){
         System.out.println("interfaceStaticMethod : " + "接口静态方法");
     }
 

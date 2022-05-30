@@ -1,6 +1,5 @@
 package com.yijian.springcommon.controller;
 
-import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -39,5 +38,15 @@ public class TestController {
         atomicInteger.compareAndSet(num,2);
         return atomicInteger.get();
     }
+    
+    // @Resource
+    // // @Qualifier("orderServiceImpl1")
+    // private OrderService orderServiceImpl1;
+    //
+    // @RequestMapping("/injection")
+    // public void injection(){
+    //     System.out.println(orderServiceImpl1);
+    // }
+
 
 }

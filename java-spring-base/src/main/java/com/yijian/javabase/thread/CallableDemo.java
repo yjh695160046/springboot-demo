@@ -9,7 +9,7 @@ import java.util.concurrent.FutureTask;
 /**
  * @author: yaojinhua
  * @date: 2021/6/30 14:41
- * @description: 创建线程的第第三种方式
+ * @description: 创建线程的第三种方式
  */
 public class CallableDemo {
     public static void main(String[] args)  {

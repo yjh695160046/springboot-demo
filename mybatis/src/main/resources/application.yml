@@ -1,0 +1,22 @@
+mybatis:
+  ## 开启mybatis 的二级缓存 针对mapper级别 namespacse
+  configuration:
+    cache-enabled: true
+    # 日志打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:/mapper/*Mapper.xml
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 1234
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 192.168.56.10
+    password: 123456
+    port: 6380
+
+server:
+  port: 7081

@@ -1,13 +1,11 @@
 package com.yijian.controller;
 
-import cn.hutool.core.date.DateUtil;
-import com.yijian.redisson.entity.ActiveInfo;
-import org.springframework.data.redis.core.SetOperations;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
+import javax.annotation.Resource;
 import java.util.Map;
 
 /**
@@ -19,6 +17,8 @@ import java.util.Map;
 @RequestMapping("/test")
 public class TestController {
 
+    @Resource
+    private StringRedisTemplate stringRedisTemplate;
     @RequestMapping("/checkDate")
     public Object saveSet(@RequestBody Map<String, Object> map) {
 
@@ -27,4 +27,9 @@ public class TestController {
 
     }
 
+    @RequestMapping("/redis/sendMessage")
+    public void sendMessage(){
+        stringRedisTemplate.convertAndSend("pmp", String.valueOf(Math.random()));
+        stringRedisTemplate.convertAndSend("channel", String.valueOf(Math.random()));
+    }
 }

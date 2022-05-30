@@ -24,7 +24,7 @@
         <module>rocketmq-demo</module>
         <module>hystrix-demo</module>
         <module>spring-common</module>
-        <module>mybaits</module>
+        <module>mybatis</module>
     </modules>
 
     <properties>
@@ -58,6 +58,16 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>27.0.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
         </dependency>
     </dependencies>
 

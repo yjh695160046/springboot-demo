@@ -1,7 +1,9 @@
 package com.yijian.javabase.main.collection;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author: yxyaojinhua
@@ -11,14 +13,14 @@ import java.util.ArrayList;
 public class ArrayListDemo {
     /**
      * 1.基本概念
-     *      继承体系 extends AbstractList<E> implements List<E>, RandomAccess(标志位接口 快速随机访问 get(int index)),
-     *                                                           Cloneable(该类的对象是允许被克隆的 ),
-     *                                                           java.io.Serializable(序列化接口)
-     *      底层数据结构是数组  查询快(数组优势可通过下标直接取出数据) 、增删慢（极端情况下会将大量的元素进行移位 效率低下）
+     * 继承体系 extends AbstractList<E> implements List<E>, RandomAccess(标志位接口 快速随机访问 get(int index)),
+     * Cloneable(该类的对象是允许被克隆的 ),
+     * java.io.Serializable(序列化接口)
+     * 底层数据结构是数组  查询快(数组优势可通过下标直接取出数据) 、增删慢（极端情况下会将大量的元素进行移位 效率低下）
      */
     public static void main(String[] args) {
         // 无参构造方法 构建了一个长度为10的空数组 Object[] elementData = {};
-        ArrayList<String> arrayList = new ArrayList<>();
+//        ArrayList<String> arrayList = new ArrayList<>();
         /*
             add():
                add(E e)是ArrayList的核心方法，用于添加元素至列表的末尾
@@ -82,11 +84,30 @@ public class ArrayListDemo {
                 }
 
          */
-        arrayList.add("11");
-        arrayList.add("22");
-        arrayList.add("33");
-        arrayList.addAll(new ArrayList<>());
-        createArray();
+//        arrayList.add("11");
+//        arrayList.add("22");
+//        arrayList.add("33");
+//        arrayList.addAll(new ArrayList<>());
+//        createArray();
+//        test();
+//        String[] elementData = new String[10];
+//        int size = 0;
+//        String e = ""; github
+//        for (int i = 0; i < 10; i++) {
+//            size = i;
+//            e = i + "";
+//        }
+//        elementData[size++] = e;
+//        System.out.println(size);
+//        for (Object elementDatum : elementData) {
+//            System.out.println(elementDatum);
+//        }
+        ArrayList<String> list = new ArrayList<>(1);
+        list.add("1");
+        list.add("2");
+        System.out.println(list.size());
+
+
     }
 
     /**
@@ -102,7 +123,20 @@ public class ArrayListDemo {
         Integer[] array2 = new Integer[10];
         System.out.println(array1.length);
 
-
     }
+
+    /**
+     * array线程不安全体现在添加元素时
+     */
+    public static void test() {
+        ExecutorService executorService = Executors.newFixedThreadPool(50);
+        List<String> array = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            executorService.execute(() -> array.add(Thread.currentThread().getName()));
+        }
+        System.out.println(array);
+        executorService.shutdown();
+    }
+
 
 }

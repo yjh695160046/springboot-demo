@@ -1,9 +1,8 @@
 package com.yijian.springcommon.response;
 
-import com.yijian.springcommon.Enum.EnumBaseResponse;
+import com.yijian.springcommon.enums.EnumBaseResponse;
 import lombok.Data;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -31,7 +30,7 @@ public class BaseResponse {
     /**
      * 接口返回数据
      */
-    private Map<String, Object> data = new HashMap<>();
+    private Map<String, Object> data;
 
     /**
      * 私有无参构造

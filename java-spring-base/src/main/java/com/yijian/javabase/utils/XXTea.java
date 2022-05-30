@@ -104,7 +104,7 @@ public class XXTea {
             e = (sum >>> 2) & 3;
             for (p = n - 1; p > 0; p--) {
                 z = v[p - 1];
-                y = v[p] -= (z >>> 5 ^ y << 2) + (y >>> 3 ^ z << 4) ^ (sum ^ y)
+                y = v[p] -= (z >>> 5 ^ y << 2) + (  y >>> 3 ^ z << 4) ^ (sum ^ y)
                         + (k[p & 3 ^ e] ^ z);
             }
             z = v[n - 1];

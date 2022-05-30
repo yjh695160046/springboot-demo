@@ -35,7 +35,12 @@ public class RedissonAutoConfiguration {
         LOGGER.info("[RedissonLock]组装完毕");
         return redissonLock;
     }
-
+    @Bean
+    @ConditionalOnMissingBean
+    @Order(value = 3)
+    public Redisson redisson(RedissonManager redissonManager) {
+        return redissonManager.getRedisson();
+    }
     @Bean
     @ConditionalOnMissingBean
     @Order(value = 1)
