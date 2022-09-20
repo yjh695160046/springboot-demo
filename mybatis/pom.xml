@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.yijian</groupId>
-    <artifactId>mybaits</artifactId>
+    <artifactId>mybatis</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
