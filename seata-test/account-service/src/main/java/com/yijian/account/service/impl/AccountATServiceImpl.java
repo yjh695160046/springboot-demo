@@ -4,14 +4,14 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yijian.account.entity.Account;
 import com.yijian.account.mapper.AccountMapper;
-import com.yijian.account.service.AccountService;
+import com.yijian.account.service.AccountATService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 
 @Service
-public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> implements AccountService {
+public class AccountATServiceImpl extends ServiceImpl<AccountMapper, Account> implements AccountATService {
     private static final String ERROR_USER_ID = "1002";
 
     @Override

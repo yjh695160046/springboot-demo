@@ -1,7 +1,7 @@
 package com.yijian.account.controller;
 
 import com.yijian.account.pojo.common.BaseResponse;
-import com.yijian.account.service.AccountService;
+import com.yijian.account.service.AccountATService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,11 +15,11 @@ import java.math.BigDecimal;
 public class AccountController {
 
     @Resource
-    private AccountService accountService;
+    private AccountATService accountATService;
 
     @PostMapping("/deductAccount")
     public Object updateAccount(@RequestParam("userId") String userId, @RequestParam("money") BigDecimal money){
-        accountService.deductAccount(userId, money);
+        accountATService.deductAccount(userId, money);
         return BaseResponse.success(true);
     }
 }

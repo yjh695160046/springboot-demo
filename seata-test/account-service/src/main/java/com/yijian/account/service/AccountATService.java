@@ -5,7 +5,7 @@ import com.yijian.account.entity.Account;
 
 import java.math.BigDecimal;
 
-public interface AccountService extends IService<Account> {
+public interface AccountATService extends IService<Account> {
 
     void deductAccount(String userId, BigDecimal num);
 }
