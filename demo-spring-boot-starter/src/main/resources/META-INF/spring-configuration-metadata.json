@@ -1,0 +1,25 @@
+{
+  "groups": [
+    {
+      "name": "demo.sms",
+      "type": "com.yijian.demospringbootstarter.config.SmsProperties",
+      "sourceType": "com.yijian.demospringbootstarter.config.SmsProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "demo.sms.access-key-id",
+      "type": "java.lang.String",
+      "description": "访问ID、即帐号",
+      "sourceType": "com.yijian.demospringbootstarter.config.SmsProperties",
+      "defaultValue": "one two three key"
+    },
+    {
+      "name": "demo.sms.access-key-secret",
+      "type": "java.lang.String",
+      "description": "访问凭证，即密码",
+      "sourceType": "com.yijian.demospringbootstarter.config.SmsProperties",
+      "defaultValue": "one two three secret"
+    }
+  ]
+}

@@ -11,9 +11,9 @@
     </parent>
 
     <groupId>com.yijian</groupId>
-    <artifactId>springboot-seata-test</artifactId>
+    <artifactId>seata-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-seata-test</name>
+    <name>seata-test</name>
     <description>springboot整合seata</description>
     <packaging>pom</packaging>
 

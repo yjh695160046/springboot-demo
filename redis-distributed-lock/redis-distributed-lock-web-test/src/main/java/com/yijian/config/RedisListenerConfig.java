@@ -30,7 +30,7 @@ public class RedisListenerConfig {
         container.addMessageListener(listenerAdapter(redischannelSub), new PatternTopic("channel"));
         container.addMessageListener(listenerAdapter(redisPmpSub), new PatternTopic("pmp"));
         return container;
-    }
+    }   
 
 
     @Bean

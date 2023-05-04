@@ -7,20 +7,29 @@
         <groupId>org.yijian</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
     <groupId>com.yijian</groupId>
-    <artifactId>demo-spring-boot-starter</artifactId>
+    <artifactId>bean-validation-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
+    <name>bean-validation-demo</name>
+    <description>bean-validation-demo</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
     <dependencies>
-        <!-- 自定义场景启动 需要引入spring-boot-starter -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>2.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.yijian</groupId>
+            <artifactId>demo-spring-boot-starter</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
